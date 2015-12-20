@@ -21,14 +21,8 @@ NSMenu *m_menu;
     if (m_menu == nil) {
         m_menu = [[[NSMenu alloc] init] retain];
 
-        id titleMenuItem = [[[NSMenuItem alloc] initWithTitle:m_title action:@selector(terminate:) keyEquivalent:@"q"] autorelease];
-
-        [m_menu addItem:titleMenuItem];
-        [m_menu addItem:[NSMenuItem separatorItem]];
-        NSMenuItem *openMenuItem = [[[NSMenuItem alloc] initWithTitle:@"Open in Browser" action:@selector(openUrl) keyEquivalent:@""] autorelease];
+        NSMenuItem *openMenuItem = [[[NSMenuItem alloc] initWithTitle:@"Open" action:@selector(openUrl) keyEquivalent:@""] autorelease];
         [m_menu addItem:openMenuItem];
-        NSMenuItem *copyUrlMenuItem = [[[NSMenuItem alloc] initWithTitle:@"Copy link to Clipboard" action:@selector(copyUrl) keyEquivalent:@""] autorelease];
-        [m_menu addItem:copyUrlMenuItem];
 
         // OSX will automatically add the Quit option
 

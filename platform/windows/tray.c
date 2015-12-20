@@ -157,8 +157,7 @@ void ShowMenu(HWND hWnd)
     if (url)
     {
         AppendMenuW(hSubMenu, MF_SEPARATOR, 0, NULL);
-        AppendMenuW(hSubMenu, MF_STRING, CMD_OPEN_IN_BROWSER, L"Open in Browser");
-        AppendMenuW(hSubMenu, MF_STRING, CMD_COPY_LINK, L"Copy Link to Clipboard");
+        AppendMenuW(hSubMenu, MF_STRING, CMD_OPEN_IN_BROWSER, L"Open");
     }
     AppendMenuW(hSubMenu, MF_SEPARATOR, 0, NULL);
     AppendMenuW(hSubMenu, MF_STRING, CMD_EXIT, L"Exit");

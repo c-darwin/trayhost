@@ -37,8 +37,7 @@ static void tray_icon_on_menu(GtkStatusIcon *status_icon, guint button, guint ac
 {
     GtkWidget *titleMenuItem = gtk_menu_item_new_with_label(menu_title);
     gtk_widget_set_sensitive(titleMenuItem, FALSE);
-    openMenuItem = gtk_menu_item_new_with_label("Open in Browser");
-    copyMenuItem = gtk_menu_item_new_with_label("Copy Link to Clipboard");
+    openMenuItem = gtk_menu_item_new_with_label("Open");
     if (!url) {
         gtk_widget_set_sensitive(openMenuItem, FALSE);
         gtk_widget_set_sensitive(copyMenuItem, FALSE);
@@ -46,15 +45,10 @@ static void tray_icon_on_menu(GtkStatusIcon *status_icon, guint button, guint ac
     GtkWidget *exitMenuItem = gtk_menu_item_new_with_label("Exit");
     GtkWidget *menu = gtk_menu_new();
 
-    g_signal_connect(G_OBJECT(titleMenuItem), "activate", G_CALLBACK(handle_open), NULL);
     g_signal_connect(G_OBJECT(openMenuItem), "activate", G_CALLBACK(handle_open), NULL);
-    g_signal_connect(G_OBJECT(copyMenuItem), "activate", G_CALLBACK(handle_copy_to_clipboard), NULL);
     g_signal_connect(G_OBJECT(exitMenuItem), "activate", G_CALLBACK(tray_exit), NULL);
 
-    gtk_menu_shell_append(GTK_MENU_SHELL(menu), titleMenuItem);
-    gtk_menu_shell_append(GTK_MENU_SHELL(menu), gtk_separator_menu_item_new());
     gtk_menu_shell_append(GTK_MENU_SHELL(menu), openMenuItem);
-    gtk_menu_shell_append(GTK_MENU_SHELL(menu), copyMenuItem);
     gtk_menu_shell_append(GTK_MENU_SHELL(menu), gtk_separator_menu_item_new());
     gtk_menu_shell_append(GTK_MENU_SHELL(menu), exitMenuItem);
     gtk_widget_show_all(menu);
