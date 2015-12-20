@@ -76,7 +76,7 @@ func EnterLoop(title string, imageData []byte) {
 
 	// If reached, user clicked Exit
 	isExiting = true
-	if utils.DB ! nil && utils.DB.DB != nil {
+	if utils.DB != nil && utils.DB.DB != nil {
 		err := utils.DB.ExecSql(`INSERT INTO stop_daemons(stop_time) VALUES (?)`, utils.Time())
 		if err != nil {
 			log.Error("%v", utils.ErrInfo(err))
